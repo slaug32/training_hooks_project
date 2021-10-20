@@ -22,7 +22,7 @@ function App() {
     }
   }, [emailError, nameError, phoneError])
 
-  const funkEmail = (e) => {
+  const funcEmail = (e) => {
     setEmail(e.target.value)
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(e.target.value).toLowerCase())) {
@@ -32,7 +32,7 @@ function App() {
     }
   }
 
-  const funkPhone = (e) => {
+  const funcPhone = (e) => {
     setPhone(e.target.value)
     if (e.target.value.length > 11) {
       setPhoneError("Некорректный номер")
@@ -41,7 +41,7 @@ function App() {
     }
   }
 
-  const funkName = (e) => {
+  const funcName = (e) => {
     setName(e.target.value)
     if (e.target.value.length < 3) {
       setNameError("Некорректное имя")
@@ -50,7 +50,7 @@ function App() {
     }
   }
 
-  const funk = (e) => {
+  const func = (e) => {
     switch (e.target.name) {
       case "name1":
         setNameDart(true)
@@ -69,13 +69,13 @@ function App() {
       <h1>Регистрация</h1>
       <div>Имя</div>
       {(nameDart && nameError) && <div style={{ color: "red" }}>{nameError}</div>}
-      <input onChange={e => funkName(e)} value={name1} onBlur={e => funk(e)} name="name1" type="text" placeholder="ваше имя" />
+      <input onChange={e => funcName(e)} value={name1} onBlur={e => func(e)} name="name1" type="text" placeholder="ваше имя" />
       <div>Email</div>
       {(emailDart && emailError) && <div style={{ color: "red" }}>{emailError}</div>}
-      <input onChange={e => funkEmail(e)} value={email} onBlur={e => funk(e)} name="mail" type="text" placeholder="ваш email" />
+      <input onChange={e => funcEmail(e)} value={email} onBlur={e => func(e)} name="mail" type="text" placeholder="ваш email" />
       <div>Номер телефона</div>
       {(phoneDart && phoneError) && <div style={{ color: "red" }}>{phoneError}</div>}
-      <input onChange={e => funkPhone(e)} value={phone} onBlur={e => funk(e)} name="phone" type="text" placeholder="ваш номер" />
+      <input onChange={e => funcPhone(e)} value={phone} onBlur={e => func(e)} name="phone" type="text" placeholder="ваш номер" />
       <div>Языки</div>
       <select>
         <option>Английский</option>
